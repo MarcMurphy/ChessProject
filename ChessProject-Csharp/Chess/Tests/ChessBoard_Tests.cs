@@ -29,54 +29,25 @@ namespace Gfi.Hiring
 			Assert.That(ChessBoard.MaxBoardHeight, Is.EqualTo(7));
 		}
 
-		[Test]
-		public void IsLegalBoardPosition_True_X_equals_0_Y_equals_0()
+		[TestCase(0, 0)]
+        [TestCase(5, 5)]
+        public void IsLegalBoardPosition_True_WhenCoordinateIsWithinBoardDimensions(int xCoordinate, int yCoordinate)
 		{
-			var isValidPosition = _chessBoard.IsLegalBoardPosition(0, 0);
+			var isValidPosition = _chessBoard.IsLegalBoardPosition(xCoordinate, yCoordinate);
 			Assert.That(isValidPosition, Is.True);
 		}
 
-		[Test]
-		public void IsLegalBoardPosition_True_X_equals_5_Y_equals_5()
+		[TestCase(11, 5)]
+        [TestCase(0, 9)]
+        [TestCase(11, 0)]
+        [TestCase(-1, 5)]
+        [TestCase(5, 1)]
+        public void IsLegalBoardPosition_False_When_EitherCoordinateIsOutsideBoardDimensions(int xCoordinate, int yCoordinate)
 		{
-			var isValidPosition = _chessBoard.IsLegalBoardPosition(5, 5);
-			Assert.That(isValidPosition, Is.True);
-		}
-
-		[Test]
-		public void IsLegalBoardPosition_False_X_equals_11_Y_equals_5()
-		{
-			var isValidPosition = _chessBoard.IsLegalBoardPosition(11, 5);
+			var isValidPosition = _chessBoard.IsLegalBoardPosition(xCoordinate, yCoordinate);
 			Assert.That(isValidPosition, Is.False);
 		}
 
-		[Test]
-		public void IsLegalBoardPosition_False_X_equals_0_Y_equals_9()
-		{
-			var isValidPosition = _chessBoard.IsLegalBoardPosition(0, 9);
-			Assert.That(isValidPosition, Is.False);
-		}
-
-		[Test]
-		public void IsLegalBoardPosition_False_X_equals_11_Y_equals_0()
-		{
-			var isValidPosition = _chessBoard.IsLegalBoardPosition(11, 0);
-			Assert.That(isValidPosition, Is.False);
-		}
-
-		[Test]
-		public void IsLegalBoardPosition_False_For_Negative_X_Values()
-		{
-			var isValidPosition = _chessBoard.IsLegalBoardPosition(-1, 5);
-			Assert.That(isValidPosition, Is.False);
-		}
-
-		[Test]
-		public void IsLegalBoardPosition_False_For_Negative_Y_Values()
-		{
-			var isValidPosition = _chessBoard.IsLegalBoardPosition(5, -1);
-			Assert.That(isValidPosition, Is.False);
-		}
 		[Test]
 		public void Avoids_Duplicate_Positioning()
 		{
