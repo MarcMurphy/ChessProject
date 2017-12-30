@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gfi.Hiring.Properties;
+using System;
 
 namespace Gfi.Hiring
 {
@@ -28,8 +29,8 @@ namespace Gfi.Hiring
         }
 
         protected string CurrentPositionAsString()
-        {
-            return string.Format("Current X: {1}{0}Current Y: {2}{0}Piece Color: {3}", Environment.NewLine, this.XCoordinate, this.YCoordinate, this.PieceColor);
+        { 
+            return string.Format(Resources.CurrentPosition, Environment.NewLine, this.XCoordinate, this.YCoordinate, this.PieceColor);
         }
 
     }
