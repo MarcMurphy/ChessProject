@@ -7,7 +7,7 @@ namespace Gfi.Hiring
     {
         public static readonly int MaxBoardWidth = 7;
         public static readonly int MaxBoardHeight = 7;
-        private Pawn[,] pieces;
+        private GridSquare[,] board;
 
         public static void Main()
         {
@@ -16,7 +16,7 @@ namespace Gfi.Hiring
 
         public ChessBoard ()
         {
-            pieces = new Pawn[MaxBoardWidth, MaxBoardHeight];
+            board = new GridSquare[MaxBoardWidth, MaxBoardHeight];
         }
 
         public void Add(Pawn pawn, Point coordinate, PieceColor pieceColor)
