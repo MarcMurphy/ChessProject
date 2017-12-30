@@ -63,9 +63,18 @@ namespace Gfi.Hiring.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Current X: {1}{0}Current Y: {2}{0}Piece Color: {3}.
         /// </summary>
-        internal static string CurrentPosition {
+        internal static string CurrentPositionForDebug {
             get {
-                return ResourceManager.GetString("CurrentPosition", resourceCulture);
+                return ResourceManager.GetString("CurrentPositionForDebug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}{1}{2}.
+        /// </summary>
+        internal static string CurrentPositionForDisplay {
+            get {
+                return ResourceManager.GetString("CurrentPositionForDisplay", resourceCulture);
             }
         }
     }

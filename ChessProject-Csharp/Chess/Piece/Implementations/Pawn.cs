@@ -4,7 +4,7 @@ namespace Gfi.Hiring
 {
     public class Pawn : BasePiece
     {
-        public Pawn(PieceColor pieceColor) : base(pieceColor)
+        public Pawn(PieceColor pieceColor) : base(pieceColor, string.Empty)
         {
         }
 
@@ -15,7 +15,7 @@ namespace Gfi.Hiring
 
         public override string ToString()
         {
-            return CurrentPositionAsString();
+            return CurrentPositionAsStringForDisplay();
         }
     }
 }
