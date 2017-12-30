@@ -8,6 +8,11 @@ namespace Gfi.Hiring
         public static readonly int MaxBoardHeight = 7;
         private Pawn[,] pieces;
 
+        public static void Main()
+        {
+
+        }
+
         public ChessBoard ()
         {
             pieces = new Pawn[MaxBoardWidth, MaxBoardHeight];
