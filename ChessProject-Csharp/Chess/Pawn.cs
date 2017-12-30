@@ -4,38 +4,17 @@ namespace Gfi.Hiring
 {
     public class Pawn
     {
-        private ChessBoard _chessBoard;
-        private int _xCoordinate;
-        private int _yCoordinate;
-        private PieceColor _pieceColor;
-        
-        public ChessBoard ChessBoard
-        {
-            get { return _chessBoard; }
-            set { _chessBoard = value; }
-        }
+        public ChessBoard ChessBoard { get; set; }
 
-        public int XCoordinate
-        {
-            get { return _xCoordinate; }
-            set { _xCoordinate = value; }
-        }
+        public int XCoordinate { get; set; }
         
-        public int YCoordinate
-        {
-            get { return _yCoordinate; }
-            set { _yCoordinate = value; }
-        }
+        public int YCoordinate { get; set; }
 
-        public PieceColor PieceColor
-        {
-            get { return _pieceColor; }
-            private set { _pieceColor = value; }
-        }
+        public PieceColor PieceColor { get; set; }
 
         public Pawn(PieceColor pieceColor)
         {
-            _pieceColor = pieceColor;
+            this.PieceColor = pieceColor;
         }
 
         public void Move(MovementType movementType, int newX, int newY)
@@ -50,7 +29,7 @@ namespace Gfi.Hiring
 
         protected string CurrentPositionAsString()
         {
-            return string.Format("Current X: {1}{0}Current Y: {2}{0}Piece Color: {3}", Environment.NewLine, XCoordinate, YCoordinate, PieceColor);
+            return string.Format("Current X: {1}{0}Current Y: {2}{0}Piece Color: {3}", Environment.NewLine, this.XCoordinate, this.YCoordinate, this.PieceColor);
         }
 
     }
