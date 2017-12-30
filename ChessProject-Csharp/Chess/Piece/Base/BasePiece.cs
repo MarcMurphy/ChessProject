@@ -1,16 +1,17 @@
 ﻿using Gfi.Hiring.Properties;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace Gfi.Hiring
 {
     public abstract class BasePiece
     {
-        public ChessBoard ChessBoard { get; set; }
-        
         public PieceColor PieceColor { get; set; }
 
         public Point Coordinate { get; set; }
+
+        public List<Point> ValidMovements { get; set; }
 
         public BasePiece(PieceColor pieceColor)
         {
