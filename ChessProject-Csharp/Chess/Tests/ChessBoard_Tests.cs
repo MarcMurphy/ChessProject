@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -55,10 +56,8 @@ namespace Gfi.Hiring
 			Pawn secondPawn = new Pawn(PieceColor.Black);
 			_chessBoard.Add(firstPawn, 6, 3, PieceColor.Black);
 			_chessBoard.Add(secondPawn, 6, 3, PieceColor.Black);
-			Assert.That(firstPawn.XCoordinate, Is.EqualTo(6));
-			Assert.That(firstPawn.YCoordinate, Is.EqualTo(3));
-			Assert.That(secondPawn.XCoordinate, Is.EqualTo(-1));
-			Assert.That(secondPawn.YCoordinate, Is.EqualTo(-1));
+            Assert.That(firstPawn.ChessBoard, Is.EqualTo(new Point(6, 3)));
+            Assert.That(secondPawn.ChessBoard, Is.EqualTo(new Point(-1, -1)));
 		}
 
 		[Test]
@@ -71,13 +70,12 @@ namespace Gfi.Hiring
 				_chessBoard.Add(pawn, 6 + row, i % ChessBoard.MaxBoardWidth, PieceColor.Black);
 				if (row < 1)
 				{
-					Assert.That(pawn.XCoordinate, Is.EqualTo(6 + row));
-					Assert.That(pawn.YCoordinate, Is.EqualTo(i % ChessBoard.MaxBoardWidth));
+					Assert.That(pawn.Coordinate.X, Is.EqualTo(6 + row));
+					Assert.That(pawn.Coordinate.Y, Is.EqualTo(i % ChessBoard.MaxBoardWidth));
 				}
 				else
 				{
-					Assert.That(pawn.XCoordinate, Is.EqualTo(-1));
-					Assert.That(pawn.YCoordinate, Is.EqualTo(-1));
+					Assert.That(pawn.Coordinate, Is.EqualTo(new Point(-1,-1)));
 				}
 			}
 		}
