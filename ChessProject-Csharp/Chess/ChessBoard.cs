@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace Gfi.Hiring
 {
@@ -18,7 +19,7 @@ namespace Gfi.Hiring
             pieces = new Pawn[MaxBoardWidth, MaxBoardHeight];
         }
 
-        public void Add(Pawn pawn, int xCoordinate, int yCoordinate, PieceColor pieceColor)
+        public void Add(Pawn pawn, Point coordinate, PieceColor pieceColor)
         {
             throw new NotImplementedException("Need to implement ChessBoard.Add()");
         }
