@@ -1,5 +1,7 @@
 
 ChessProject-Csharp/.vs/Gfi.Hiring/v15/.suo
+ChessProject-Csharp/Chess/bin/*
+ChessProject-Csharp/Chess/obj/*
 *.exe
 *.pdb
 *.cache
