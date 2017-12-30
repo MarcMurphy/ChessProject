@@ -1,18 +1,9 @@
-﻿using Gfi.Hiring.Properties;
-using System;
+﻿using System;
 
 namespace Gfi.Hiring
 {
-    public class Pawn
+    public class Pawn : BasePiece
     {
-        public ChessBoard ChessBoard { get; set; }
-
-        public int XCoordinate { get; set; }
-        
-        public int YCoordinate { get; set; }
-
-        public PieceColor PieceColor { get; set; }
-
         public Pawn(PieceColor pieceColor)
         {
             this.PieceColor = pieceColor;
@@ -27,11 +18,5 @@ namespace Gfi.Hiring
         {
             return CurrentPositionAsString();
         }
-
-        protected string CurrentPositionAsString()
-        { 
-            return string.Format(Resources.CurrentPosition, Environment.NewLine, this.XCoordinate, this.YCoordinate, this.PieceColor);
-        }
-
     }
 }
