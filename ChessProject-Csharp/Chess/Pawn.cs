@@ -4,9 +4,8 @@ namespace Gfi.Hiring
 {
     public class Pawn : BasePiece
     {
-        public Pawn(PieceColor pieceColor)
+        public Pawn(PieceColor pieceColor) : base(pieceColor)
         {
-            this.PieceColor = pieceColor;
         }
 
         public void Move(MovementType movementType, int newX, int newY)

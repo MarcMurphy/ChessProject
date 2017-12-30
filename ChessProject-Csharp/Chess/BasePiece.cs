@@ -12,6 +12,11 @@ namespace Gfi.Hiring
 
         public Point Coordinate { get; set; }
 
+        public BasePiece(PieceColor pieceColor)
+        {
+            this.PieceColor = pieceColor;
+        }
+
         protected string CurrentPositionAsString()
         {
             return string.Format(Resources.CurrentPosition, Environment.NewLine, this.Coordinate.X, this.Coordinate.Y, this.PieceColor);
