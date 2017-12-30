@@ -17,6 +17,12 @@ namespace Gfi.Hiring
         }
 
         [Test]
+        public void Pawn_Is_BasePiece()
+        {
+            Assert.That(typeof(Pawn).IsSubclassOf(typeof(BasePiece)));
+        }
+
+        [Test]
         public void ChessBoard_Add_Sets_Coordinate()
         {
             _chessBoard.Add(_pawn, 6, 3, PieceColor.Black);
