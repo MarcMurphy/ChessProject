@@ -16,8 +16,6 @@ namespace Gfi.Hiring
 
         public string PieceCode { get; set; }
 
-        public virtual string test{get;}
-
         public BasePiece(PieceColor pieceColor, string pieceCode)
         {
             this.PieceColor = pieceColor;
