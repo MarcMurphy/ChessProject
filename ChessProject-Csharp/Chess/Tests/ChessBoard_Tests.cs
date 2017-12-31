@@ -38,7 +38,7 @@ namespace Gfi.Hiring
         [TestCase(0, 9)]
         [TestCase(11, 0)]
         [TestCase(-1, 5)]
-        [TestCase(5, 1)]
+        [TestCase(5, -1)]
         public void IsLegalBoardPosition_False_When_EitherCoordinateIsOutsideBoardDimensions(int xCoordinate, int yCoordinate)
         {
             var isValidPosition = _chessBoard.IsLegalBoardPosition(new Point(xCoordinate, yCoordinate));
