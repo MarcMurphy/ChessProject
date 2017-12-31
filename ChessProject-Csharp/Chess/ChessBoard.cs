@@ -26,7 +26,13 @@ namespace Gfi.Hiring
 
         public bool IsLegalBoardPosition(Point coordinate)
         {
-            throw new NotImplementedException("Need to implement ChessBoard.IsLegalBoardPosition()");
+            if( (coordinate == null) ||
+                (coordinate.X < 0 || coordinate.X > MaxBoardWidth) ||
+                (coordinate.Y < 0 || coordinate.Y > MaxBoardHeight))
+            {
+                return false;
+            }
+            return true;
         }
 
     }
