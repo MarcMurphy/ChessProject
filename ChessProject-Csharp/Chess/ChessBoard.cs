@@ -24,7 +24,7 @@ namespace Gfi.Hiring
             throw new NotImplementedException("Need to implement ChessBoard.Add()");
         }
 
-        public bool IsLegalBoardPosition(int xCoordinate, int yCoordinate)
+        public bool IsLegalBoardPosition(Point coordinate)
         {
             throw new NotImplementedException("Need to implement ChessBoard.IsLegalBoardPosition()");
         }

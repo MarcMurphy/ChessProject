@@ -30,7 +30,7 @@ namespace Gfi.Hiring
         [TestCase(5, 5)]
         public void IsLegalBoardPosition_True_WhenCoordinateIsWithinBoardDimensions(int xCoordinate, int yCoordinate)
         {
-            var isValidPosition = _chessBoard.IsLegalBoardPosition(xCoordinate, yCoordinate);
+            var isValidPosition = _chessBoard.IsLegalBoardPosition(new Point(xCoordinate, yCoordinate));
             Assert.That(isValidPosition, Is.True);
         }
 
@@ -41,7 +41,7 @@ namespace Gfi.Hiring
         [TestCase(5, 1)]
         public void IsLegalBoardPosition_False_When_EitherCoordinateIsOutsideBoardDimensions(int xCoordinate, int yCoordinate)
         {
-            var isValidPosition = _chessBoard.IsLegalBoardPosition(xCoordinate, yCoordinate);
+            var isValidPosition = _chessBoard.IsLegalBoardPosition(new Point(xCoordinate, yCoordinate));
             Assert.That(isValidPosition, Is.False);
         }
 
