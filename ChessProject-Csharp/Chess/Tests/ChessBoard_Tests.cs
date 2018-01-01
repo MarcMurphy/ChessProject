@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Drawing;
+using System.Windows.Controls;
 
 namespace Gfi.Hiring
 {
@@ -53,15 +54,31 @@ namespace Gfi.Hiring
             _chessBoard.Add(pawn, new GridSquare(new Point(6, 3)), PieceColor.Black);
             Assert.That(pawn.Coordinate, Is.EqualTo(new Point(6, 3)));
         }
+
         [Test]
-        public void Avoids_Duplicate_Positioning()
+        public void ChessBoard_Add_Fails_With_Invalid_Coordinate()
+        {
+            Pawn pawn = new Pawn(PieceColor.Black);
+            ValidationResult validationResult = _chessBoard.Add(pawn, new GridSquare(new Point(-1,-1)), PieceColor.Black);
+            Assert.That(validationResult.IsValid, Is.EqualTo(false));
+        }
+
+        [Test]
+        public void ChessBoard_Add_Succeeds_With_Valid_Coordinate()
+        {
+            Pawn pawn = new Pawn(PieceColor.Black);
+            ValidationResult validationResult = _chessBoard.Add(pawn, new GridSquare(new Point(6, 3)), PieceColor.Black);
+            Assert.That(validationResult.IsValid, Is.EqualTo(true));
+        }
+
+        [Test]
+        public void ChessBoard_Add_Avoids_Duplicate_Positioning()
         {
             Pawn firstPawn = new Pawn(PieceColor.Black);
             Pawn secondPawn = new Pawn(PieceColor.Black);
             _chessBoard.Add(firstPawn, new GridSquare(new Point(6, 3)), PieceColor.Black);
-            _chessBoard.Add(secondPawn, new GridSquare(new Point(6, 3)), PieceColor.Black);
-            Assert.That(firstPawn.Coordinate, Is.EqualTo(new Point(6, 3)));
-            Assert.That(secondPawn.Coordinate, Is.EqualTo(new Point(-1, -1)));
+            ValidationResult validationResult = _chessBoard.Add(secondPawn, new GridSquare(new Point(6, 3)), PieceColor.Black);
+            Assert.That(validationResult.IsValid, Is.EqualTo(false));
         }
 
         [Test]

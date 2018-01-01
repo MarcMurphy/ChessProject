@@ -125,4 +125,10 @@
     <comment>{0} = pieceCode, {1} = column, {2} = row
 </comment>
   </data>
+  <data name="GridSquareAlreadyContainsPiece" xml:space="preserve">
+    <value>gridSquare already contains a piece. No action will be taken</value>
+  </data>
+  <data name="GridSquareCoordinateIsNotValid" xml:space="preserve">
+    <value>gridSquare coordinate is not valid</value>
+  </data>
 </root>

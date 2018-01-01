@@ -1,5 +1,6 @@
-﻿using System;
+﻿using Gfi.Hiring.Properties;
 using System.Drawing;
+using System.Windows.Controls;
 
 namespace Gfi.Hiring
 {
@@ -26,9 +27,25 @@ namespace Gfi.Hiring
             }
         }
 
-        public void Add(BasePiece piece, GridSquare coordinate, PieceColor pieceColor)
+        /// <summary>
+        /// Add a piece to the board at the specified coordinate
+        /// <summary>
+        /// <returns>
+        /// ValidationResult containing if addition of piece was successful or not, and an error message if unsuccessful
+        /// </returns>
+        public ValidationResult Add(BasePiece piece, GridSquare gridSquare, PieceColor pieceColor)
         {
-            board[coordinate.Coordinate.X, coordinate.Coordinate.Y].SetPiece(piece);
+            if (!this.IsLegalBoardPosition(gridSquare.Coordinate))
+            {
+                return new ValidationResult(false, Resources.GridSquareCoordinateIsNotValid);
+            }
+            GridSquare boardSquare = board[gridSquare.Coordinate.X, gridSquare.Coordinate.Y];
+            if (boardSquare.ContainsPiece())
+            {
+                return new ValidationResult(false, Resources.GridSquareAlreadyContainsPiece);
+            }
+            boardSquare.SetPiece(piece);
+            return new ValidationResult(true, string.Empty);
         }
 
         public bool IsLegalBoardPosition(Point coordinate)

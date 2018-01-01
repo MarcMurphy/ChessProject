@@ -77,5 +77,23 @@ namespace Gfi.Hiring.Properties {
                 return ResourceManager.GetString("CurrentPositionForDisplay", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to gridSquare already contains a piece. No action will be taken.
+        /// </summary>
+        internal static string GridSquareAlreadyContainsPiece {
+            get {
+                return ResourceManager.GetString("GridSquareAlreadyContainsPiece", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to gridSquare coordinate is not valid.
+        /// </summary>
+        internal static string GridSquareCoordinateIsNotValid {
+            get {
+                return ResourceManager.GetString("GridSquareCoordinateIsNotValid", resourceCulture);
+            }
+        }
     }
 }

@@ -23,5 +23,10 @@ namespace Gfi.Hiring
             this.Piece = piece;
             this.Piece.Coordinate = this.Coordinate;
         }
+
+        public bool ContainsPiece()
+        {
+            return this.Piece != null;
+        }
     }
 }
