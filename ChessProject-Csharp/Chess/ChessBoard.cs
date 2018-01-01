@@ -1,4 +1,6 @@
 ﻿using Gfi.Hiring.Properties;
+using Gfi.Hiring.Utils;
+using Gfi.Hiring.Utils.BoardLegelPositionChecker;
 using System.Drawing;
 using System.Windows.Controls;
 
@@ -8,7 +10,9 @@ namespace Gfi.Hiring
     {
         public static readonly int MaxBoardWidth = 8;
         public static readonly int MaxBoardHeight = 8;
+
         private GridSquare[,] board;
+        private IBoardLegalPositionChecker boardPositionChecker;
 
         public static void Main()
         {
@@ -18,6 +22,7 @@ namespace Gfi.Hiring
         public ChessBoard ()
         {
             board = new GridSquare[MaxBoardWidth, MaxBoardHeight];
+            boardPositionChecker = new BoardLegalPositionChecker(MaxBoardWidth, MaxBoardHeight);
             for(int x = 0; x < MaxBoardWidth; x++)
             {
                 for(int y = 0; y < MaxBoardHeight; y++)
@@ -25,6 +30,11 @@ namespace Gfi.Hiring
                     board[x, y] = new GridSquare(new Point(x, y));
                 }
             }
+        }
+
+        public bool IsLegalBoardPosition(Point coordinate)
+        {
+            return this.boardPositionChecker.IsLegalBoardPosition(coordinate);
         }
 
         /// <summary>
@@ -35,7 +45,7 @@ namespace Gfi.Hiring
         /// </returns>
         public ValidationResult Add(BasePiece piece, Point coordinate)
         {
-            if (!this.IsLegalBoardPosition(coordinate))
+            if (!boardPositionChecker.IsLegalBoardPosition(coordinate))
             {
                 return new ValidationResult(false, Resources.GridSquareCoordinateIsNotValid);
             }
@@ -47,16 +57,25 @@ namespace Gfi.Hiring
             boardSquare.SetPiece(piece);
             return new ValidationResult(true, string.Empty);
         }
-
-        public bool IsLegalBoardPosition(Point coordinate)
+        
+        public void Move(Point currentPosition, Point destination)
         {
-            if( (coordinate == null) ||
-                (coordinate.X < 0 || coordinate.X >= MaxBoardWidth) ||
-                (coordinate.Y < 0 || coordinate.Y >= MaxBoardHeight))
+            if(boardPositionChecker.IsLegalBoardPosition(currentPosition) && boardPositionChecker.IsLegalBoardPosition(destination))
             {
-                return false;
+                return;
             }
-            return true;
+            //get piece
+            //move piece through PieceValidMoveCalculator
+            //verify destination is in piece.ValidMovementSquares
+            //
+        }
+
+        public GridSquare[,] CurrentBoardState
+        {
+            get
+            {
+                return this.board;
+            }
         }
 
     }

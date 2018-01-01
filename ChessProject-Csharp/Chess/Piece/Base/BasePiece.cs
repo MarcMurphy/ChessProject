@@ -13,7 +13,7 @@ namespace Gfi.Hiring
 
         public Point Coordinate { get; set; }
 
-        public HashSet<Point> ValidMovements { get; set; }
+        public HashSet<GridSquare> ValidMovements { get; set; }
 
         public PieceType PieceType { get; set; }
 
