@@ -51,8 +51,8 @@ namespace Gfi.Hiring
         public bool IsLegalBoardPosition(Point coordinate)
         {
             if( (coordinate == null) ||
-                (coordinate.X < 0 || coordinate.X > MaxBoardWidth) ||
-                (coordinate.Y < 0 || coordinate.Y > MaxBoardHeight))
+                (coordinate.X < 0 || coordinate.X >= MaxBoardWidth) ||
+                (coordinate.Y < 0 || coordinate.Y >= MaxBoardHeight))
             {
                 return false;
             }
