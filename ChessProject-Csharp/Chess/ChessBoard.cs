@@ -33,13 +33,13 @@ namespace Gfi.Hiring
         /// <returns>
         /// ValidationResult containing if addition of piece was successful or not, and an error message if unsuccessful
         /// </returns>
-        public ValidationResult Add(BasePiece piece, GridSquare gridSquare)
+        public ValidationResult Add(BasePiece piece, Point coordinate)
         {
-            if (!this.IsLegalBoardPosition(gridSquare.Coordinate))
+            if (!this.IsLegalBoardPosition(coordinate))
             {
                 return new ValidationResult(false, Resources.GridSquareCoordinateIsNotValid);
             }
-            GridSquare boardSquare = board[gridSquare.Coordinate.X, gridSquare.Coordinate.Y];
+            GridSquare boardSquare = board[coordinate.X, coordinate.Y];
             if (boardSquare.ContainsPiece())
             {
                 return new ValidationResult(false, Resources.GridSquareAlreadyContainsPiece);

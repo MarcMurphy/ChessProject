@@ -51,7 +51,7 @@ namespace Gfi.Hiring
         public void ChessBoard_Add_Sets_Coordinate()
         {
             Pawn pawn = new Pawn(PieceColor.Black);
-            _chessBoard.Add(pawn, new GridSquare(new Point(6, 3)));
+            _chessBoard.Add(pawn, new Point(6, 3));
             Assert.That(pawn.Coordinate, Is.EqualTo(new Point(6, 3)));
         }
 
@@ -59,7 +59,7 @@ namespace Gfi.Hiring
         public void ChessBoard_Add_Fails_With_Invalid_Coordinate()
         {
             Pawn pawn = new Pawn(PieceColor.Black);
-            ValidationResult validationResult = _chessBoard.Add(pawn, new GridSquare(new Point(-1,-1)));
+            ValidationResult validationResult = _chessBoard.Add(pawn, new Point(-1,-1));
             Assert.That(validationResult.IsValid, Is.EqualTo(false));
         }
 
@@ -67,7 +67,7 @@ namespace Gfi.Hiring
         public void ChessBoard_Add_Succeeds_With_Valid_Coordinate()
         {
             Pawn pawn = new Pawn(PieceColor.Black);
-            ValidationResult validationResult = _chessBoard.Add(pawn, new GridSquare(new Point(6, 3)));
+            ValidationResult validationResult = _chessBoard.Add(pawn, new Point(6, 3));
             Assert.That(validationResult.IsValid, Is.EqualTo(true));
         }
 
@@ -76,8 +76,8 @@ namespace Gfi.Hiring
         {
             Pawn firstPawn = new Pawn(PieceColor.Black);
             Pawn secondPawn = new Pawn(PieceColor.Black);
-            _chessBoard.Add(firstPawn, new GridSquare(new Point(6, 3)));
-            ValidationResult validationResult = _chessBoard.Add(secondPawn, new GridSquare(new Point(6, 3)));
+            _chessBoard.Add(firstPawn, new Point(6, 3));
+            ValidationResult validationResult = _chessBoard.Add(secondPawn, new Point(6, 3));
             Assert.That(validationResult.IsValid, Is.EqualTo(false));
         }
 
@@ -90,7 +90,7 @@ namespace Gfi.Hiring
                 int row = i / ChessBoard.MaxBoardWidth;
                 Point p = new Point(6 + row, i % ChessBoard.MaxBoardWidth);
 
-                _chessBoard.Add(pawn, new GridSquare(p));
+                _chessBoard.Add(pawn, p);
                 if (row < 1)
                 {
                     Assert.That(pawn.Coordinate.X, Is.EqualTo(6 + row));
