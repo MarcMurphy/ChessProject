@@ -23,13 +23,6 @@ namespace Gfi.Hiring
         }
 
         [Test]
-        public void ChessBoard_Add_Sets_Coordinate()
-        {
-            _chessBoard.Add(_pawn, new GridSquare(new Point(6, 3)), PieceColor.Black);
-            Assert.That(_pawn.Coordinate, Is.EqualTo(new Point(6,3)));
-        }
-
-        [Test]
         public void Pawn_Move_IllegalCoordinates_Right_DoesNotMove()
         {
             _chessBoard.Add(_pawn, new GridSquare(new Point(6, 3)), PieceColor.Black);

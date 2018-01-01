@@ -45,6 +45,14 @@ namespace Gfi.Hiring
             Assert.That(isValidPosition, Is.False);
         }
 
+
+        [Test]
+        public void ChessBoard_Add_Sets_Coordinate()
+        {
+            Pawn pawn = new Pawn(PieceColor.Black);
+            _chessBoard.Add(pawn, new GridSquare(new Point(6, 3)), PieceColor.Black);
+            Assert.That(pawn.Coordinate, Is.EqualTo(new Point(6, 3)));
+        }
         [Test]
         public void Avoids_Duplicate_Positioning()
         {
