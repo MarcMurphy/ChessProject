@@ -1,4 +1,5 @@
-﻿using Gfi.Hiring.Properties;
+﻿using Gfi.Hiring.Piece.Enums;
+using Gfi.Hiring.Properties;
 using Gfi.Hiring.Utils;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,12 @@ namespace Gfi.Hiring
 
         public List<Point> ValidMovements { get; set; }
 
-        public string PieceCode { get; set; }
+        public PieceType PieceType { get; set; }
 
-        public BasePiece(PieceColor pieceColor, string pieceCode)
+        public BasePiece(PieceColor pieceColor, PieceType pieceType)
         {
             this.PieceColor = pieceColor;
-            this.PieceCode = pieceCode;
+            this.PieceType = pieceType;
         }
 
         protected string CurrentPositionAsString()
@@ -31,7 +32,7 @@ namespace Gfi.Hiring
         {
             string column = ChessBoardCoordinateTranslator.TranslateColumn(this.Coordinate.Y);
             string row = ChessBoardCoordinateTranslator.TranslateRow(this.Coordinate.X);
-            return string.Format(Resources.CurrentPositionForDisplay, this.PieceCode, column, row);
+            return string.Format(Resources.CurrentPositionForDisplay, this.PieceType, column, row);
         }
     }
 }

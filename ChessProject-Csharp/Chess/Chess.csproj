@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="GridSquare.cs" />
     <Compile Include="Piece\Base\BasePiece.cs" />
+    <Compile Include="Piece\Enums\PieceType.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
