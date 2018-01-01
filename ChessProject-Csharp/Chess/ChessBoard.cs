@@ -33,7 +33,7 @@ namespace Gfi.Hiring
         /// <returns>
         /// ValidationResult containing if addition of piece was successful or not, and an error message if unsuccessful
         /// </returns>
-        public ValidationResult Add(BasePiece piece, GridSquare gridSquare, PieceColor pieceColor)
+        public ValidationResult Add(BasePiece piece, GridSquare gridSquare)
         {
             if (!this.IsLegalBoardPosition(gridSquare.Coordinate))
             {
