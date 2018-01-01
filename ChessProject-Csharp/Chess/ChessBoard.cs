@@ -17,11 +17,18 @@ namespace Gfi.Hiring
         public ChessBoard ()
         {
             board = new GridSquare[MaxBoardWidth, MaxBoardHeight];
+            for(int x = 0; x < MaxBoardWidth; x++)
+            {
+                for(int y = 0; y < MaxBoardHeight; y++)
+                {
+                    board[x, y] = new GridSquare(new Point(x, y));
+                }
+            }
         }
 
-        public void Add(Pawn pawn, Point coordinate, PieceColor pieceColor)
+        public void Add(BasePiece piece, GridSquare coordinate, PieceColor pieceColor)
         {
-            throw new NotImplementedException("Need to implement ChessBoard.Add()");
+            board[coordinate.Coordinate.X, coordinate.Coordinate.Y].SetPiece(piece);
         }
 
         public bool IsLegalBoardPosition(Point coordinate)
