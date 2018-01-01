@@ -6,8 +6,8 @@ namespace Gfi.Hiring
 {
     public class ChessBoard
     {
-        public static readonly int MaxBoardWidth = 7;
-        public static readonly int MaxBoardHeight = 7;
+        public static readonly int MaxBoardWidth = 8;
+        public static readonly int MaxBoardHeight = 8;
         private GridSquare[,] board;
 
         public static void Main()

@@ -16,30 +16,35 @@ namespace Gfi.Hiring
         }
 
         [Test]
-        public void Has_MaxBoardWidth_of_7()
+        public void Has_MaxBoardWidth_of_8()
         {
-            Assert.That(ChessBoard.MaxBoardWidth, Is.EqualTo(7));
+            Assert.That(ChessBoard.MaxBoardWidth, Is.EqualTo(8));
         }
 
         [Test]
-        public void Has_MaxBoardHeight_of_7()
+        public void Has_MaxBoardHeight_of_8()
         {
-            Assert.That(ChessBoard.MaxBoardHeight, Is.EqualTo(7));
+            Assert.That(ChessBoard.MaxBoardHeight, Is.EqualTo(8));
         }
 
         [TestCase(0, 0)]
-        [TestCase(5, 5)]
+        [TestCase(0, 7)]
+        [TestCase(7, 0)]
+        [TestCase(7, 7)]
         public void IsLegalBoardPosition_True_WhenCoordinateIsWithinBoardDimensions(int xCoordinate, int yCoordinate)
         {
             var isValidPosition = _chessBoard.IsLegalBoardPosition(new Point(xCoordinate, yCoordinate));
             Assert.That(isValidPosition, Is.True);
         }
 
-        [TestCase(11, 5)]
-        [TestCase(0, 9)]
-        [TestCase(11, 0)]
-        [TestCase(-1, 5)]
-        [TestCase(5, -1)]
+        [TestCase(-1, 0)]
+        [TestCase(8, 0)]
+        [TestCase(-1, 7)]
+        [TestCase(8, 7)]
+        [TestCase(0, -1)]
+        [TestCase(0, 8)]
+        [TestCase(7, -1)]
+        [TestCase(7, 8)]
         public void IsLegalBoardPosition_False_When_EitherCoordinateIsOutsideBoardDimensions(int xCoordinate, int yCoordinate)
         {
             var isValidPosition = _chessBoard.IsLegalBoardPosition(new Point(xCoordinate, yCoordinate));

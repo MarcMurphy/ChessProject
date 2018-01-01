@@ -15,7 +15,7 @@ namespace Gfi.Hiring
 
         public override string ToString()
         {
-            return CurrentPositionAsStringForDisplay();
+            return CurrentPositionAsString();
         }
     }
 }
