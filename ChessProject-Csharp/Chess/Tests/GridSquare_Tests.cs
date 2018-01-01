@@ -24,7 +24,7 @@ namespace Gfi.Hiring.Tests
         public void GridSquare_Set_Piece_Successfully_Sets_Piece()
         {
             Pawn pawn = new Pawn(PieceColor.Black);
-            this.gridSquare.SetPiece(new Pawn(PieceColor.Black));
+            this.gridSquare.SetPiece(pawn);
             Assert.That(this.gridSquare.Piece, Is.EqualTo(pawn));
         }
 
@@ -32,7 +32,7 @@ namespace Gfi.Hiring.Tests
         public void GridSquare_RemovePiece_Sets_Piece_To_Null()
         {
             Pawn pawn = new Pawn(PieceColor.Black);
-            this.gridSquare.SetPiece(new Pawn(PieceColor.Black));
+            this.gridSquare.SetPiece(pawn);
             this.gridSquare.RemovePiece();
 
             Assert.That(this.gridSquare.Piece, Is.EqualTo(null));
