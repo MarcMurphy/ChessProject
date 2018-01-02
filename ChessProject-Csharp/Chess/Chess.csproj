@@ -72,8 +72,8 @@
     <Compile Include="Utils\BoardLegelPositionChecker\BoardLegalPositionChecker.cs" />
     <Compile Include="Utils\BoardLegelPositionChecker\IBoardLegalPositionChecker.cs" />
     <Compile Include="Utils\ChessBoardCoordinateTranslator.cs" />
-    <Compile Include="Utils\IPieceValidMoveCalculator.cs" />
-    <Compile Include="Utils\PieceValidMoveCalculator.cs" />
+    <Compile Include="Utils\PieceValidMoveCalculator\IPieceValidMoveCalculator.cs" />
+    <Compile Include="Utils\PieceValidMoveCalculator\PieceValidMoveCalculator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
