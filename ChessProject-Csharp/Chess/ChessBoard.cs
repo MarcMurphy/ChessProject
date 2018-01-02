@@ -1,7 +1,6 @@
 ﻿using Gfi.Hiring.Properties;
 using Gfi.Hiring.Utils;
 using Gfi.Hiring.Utils.BoardLegelPositionChecker;
-using System;
 using System.Drawing;
 using System.Windows.Controls;
 
@@ -15,7 +14,7 @@ namespace Gfi.Hiring
         private GridSquare[,] board;
         private IBoardLegalPositionChecker boardPositionChecker;
         private IPieceValidMoveCalculator pieceValidMoveCalculator;
-        private ChessBoardRenderer chessBoardRenderer;
+        private IChessBoardRenderer chessBoardRenderer;
 
         public ChessBoard ()
         {
@@ -77,17 +76,12 @@ namespace Gfi.Hiring
                     piece.Move(destination);
                 }
             }
-            //get piece
-            //move piece through PieceValidMoveCalculator
-            //verify destination is in piece.ValidMovementSquares
-            //
         }
 
         public void HandleInput(string input)
         {
             if (input.Length != 5)
             {
-                Console.WriteLine("To move a piece, format input as 'a1 a4'");
                 return;
             }
 

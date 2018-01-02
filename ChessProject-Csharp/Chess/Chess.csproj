@@ -73,7 +73,8 @@
     <Compile Include="Utils\BoardLegelPositionChecker\BoardLegalPositionChecker.cs" />
     <Compile Include="Utils\BoardLegelPositionChecker\IBoardLegalPositionChecker.cs" />
     <Compile Include="Utils\ChessBoardCoordinateTranslator.cs" />
-    <Compile Include="Utils\ChessBoardRenderer.cs" />
+    <Compile Include="Utils\ChessBoardRenderer\ChessBoardRenderer.cs" />
+    <Compile Include="Utils\ChessBoardRenderer\IChessBoardRenderer.cs" />
     <Compile Include="Utils\PieceValidMoveCalculator\IPieceValidMoveCalculator.cs" />
     <Compile Include="Utils\PieceValidMoveCalculator\PieceValidMoveCalculator.cs" />
   </ItemGroup>

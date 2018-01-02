@@ -2,7 +2,7 @@
 
 namespace Gfi.Hiring.Utils
 {
-    public class ChessBoardRenderer
+    public class ChessBoardRenderer : IChessBoardRenderer
     {
         private readonly int MaxBoardWidth;
         private readonly int MaxBoardHeight;
