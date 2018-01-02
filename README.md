@@ -8,7 +8,7 @@ I believe with the implemented design, implementing new pieces is straight forwa
 	* Update PieceValidMoveCalculator with a new function for the PieceType
 It took less than 10 minutes to implement a basic Knight class.
 
-The console window is playable.
+The console window is playable (Although I recomment right-clicking the window title, and in Properties, setting the font size of something large)
 You can enter two coordinates, and the piece will move there if it's a valid move.
 e.g. the input 'a7 a5' will move the pawn on a7 to a5, because the pawn can initially move two squares. The input 'b8 c6' will move the night on B8 to B6.
 Note that the rendering code was just put in as a proof of concept and the code is rather messy due to having to change the console text colour constantly to make it visually appealing.
