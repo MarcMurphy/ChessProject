@@ -4,6 +4,6 @@ namespace Gfi.Hiring.Utils.BoardLegelPositionChecker
 {
     public interface IBoardLegalPositionChecker
     {
-        bool IsLegalBoardPosition(Point coordinate);
+        bool IsLegalBoardPosition(params Point[] coordinates);
     }
 }

@@ -24,7 +24,7 @@ namespace Gfi.Hiring
         {
             board = new GridSquare[MaxBoardWidth, MaxBoardHeight];
             boardPositionChecker = new BoardLegalPositionChecker(MaxBoardWidth, MaxBoardHeight);
-            pieceValidMoveCalculator = new PieceValidMoveCalculator();
+            pieceValidMoveCalculator = new PieceValidMoveCalculator(boardPositionChecker);
             for(int x = 0; x < MaxBoardWidth; x++)
             {
                 for(int y = 0; y < MaxBoardHeight; y++)
@@ -62,16 +62,22 @@ namespace Gfi.Hiring
         
         public void Move(Point currentPosition, Point destination)
         {
-            if(!boardPositionChecker.IsLegalBoardPosition(currentPosition) || !boardPositionChecker.IsLegalBoardPosition(destination))
+            if(!boardPositionChecker.IsLegalBoardPosition(currentPosition, destination))
             {
                 return;
             }
-            GridSquare boardSquare = board[currentPosition.X, currentPosition.Y];
-            if (boardSquare.ContainsPiece())
+            GridSquare currentSquare = board[currentPosition.X, currentPosition.Y];
+            if (currentSquare.ContainsPiece())
             {
-                BasePiece piece = boardSquare.Piece;
+                BasePiece piece = currentSquare.Piece;
                 pieceValidMoveCalculator.CalculateAndSetValidPositions(piece, board);
-                
+                if (piece.ValidMovements.Contains(destination))
+                {
+                    currentSquare.RemovePiece();
+                    GridSquare destinationSquare = board[destination.X, destination.Y];
+                    destinationSquare.SetPiece(piece);
+                    piece.Move(destination);
+                }
             }
             //get piece
             //move piece through PieceValidMoveCalculator

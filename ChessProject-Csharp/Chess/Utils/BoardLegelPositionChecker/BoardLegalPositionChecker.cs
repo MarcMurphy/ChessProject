@@ -19,14 +19,18 @@ namespace Gfi.Hiring.Utils
             this.maxHeight = maxHeight;
         }
 
-        public bool IsLegalBoardPosition(Point coordinate)
+        public bool IsLegalBoardPosition(params Point[] coordinates)
         {
-            if ((coordinate == null) ||
-                (coordinate.X < 0 || coordinate.X >= ChessBoard.MaxBoardWidth) ||
-                (coordinate.Y < 0 || coordinate.Y >= ChessBoard.MaxBoardHeight))
+            foreach (var coordinate in coordinates)
             {
-                return false;
+                if ((coordinate == null) ||
+                    (coordinate.X < 0 || coordinate.X >= ChessBoard.MaxBoardWidth) ||
+                    (coordinate.Y < 0 || coordinate.Y >= ChessBoard.MaxBoardHeight))
+                    {
+                        return false;
+                    }
             }
+            
             return true;
         }
     }

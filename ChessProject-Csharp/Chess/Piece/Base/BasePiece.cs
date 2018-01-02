@@ -9,18 +9,27 @@ namespace Gfi.Hiring
 {
     public abstract class BasePiece
     {
-        public PieceColor PieceColor { get; set; }
+        public PieceColor PieceColor { get; private set; }
 
         public Point Coordinate { get; set; }
 
-        public HashSet<GridSquare> ValidMovements { get; set; }
+        public HashSet<Point> ValidMovements { get; set; }
 
-        public PieceType PieceType { get; set; }
+        public PieceType PieceType { get; private set; }
+
+        public bool HasMoved { get; private set; }
 
         public BasePiece(PieceColor pieceColor, PieceType pieceType)
         {
             this.PieceColor = pieceColor;
             this.PieceType = pieceType;
+            this.HasMoved = false;
+        }
+
+        public void Move(Point newPosition)
+        {
+            this.Coordinate = newPosition;
+            this.HasMoved = true;
         }
 
         protected string CurrentPositionAsString()
