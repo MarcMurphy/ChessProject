@@ -1,4 +1,5 @@
-﻿using Gfi.Hiring.Utils;
+﻿using Gfi.Hiring.Piece.Implementations;
+using Gfi.Hiring.Utils;
 using Gfi.Hiring.Utils.BoardLegelPositionChecker;
 using Moq;
 using NUnit.Framework;
@@ -88,7 +89,18 @@ namespace Gfi.Hiring.Tests
             this.pieceValidMoveCalculator.CalculateAndSetValidPositions(pawn, _chessBoard.CurrentBoardState);
             Assert.That(pawn.ValidMovements.Count, Is.EqualTo(1));
             Assert.That(pawn.ValidMovements.Contains(new Point(4, 1)));
+        }
 
+        [TestCase(0,0,2)] //corner
+        [TestCase(4, 0, 4)] //side of board
+        [TestCase(4, 4, 8)] //center of board
+        public void Knight_Should_Have_X_Available_Moves_FromPosition(int xCoordinate, int yCoordinate, int expectedResult)
+        {
+            Knight knight = new Knight(PieceColor.Black);
+            Point startingPoint = new Point(xCoordinate, yCoordinate);
+            _chessBoard.Add(knight, startingPoint);
+            this.pieceValidMoveCalculator.CalculateAndSetValidPositions(knight, _chessBoard.CurrentBoardState);
+            Assert.That(knight.ValidMovements.Count, Is.EqualTo(expectedResult));
         }
     }
 }

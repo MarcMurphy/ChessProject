@@ -55,6 +55,7 @@
     <Compile Include="GridSquare.cs" />
     <Compile Include="Piece\Base\BasePiece.cs" />
     <Compile Include="Piece\Enums\PieceType.cs" />
+    <Compile Include="Piece\Implementations\Knight.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -63,6 +64,7 @@
     <Compile Include="Tests\ChessBoardCoordinateTranslator_Tests.cs" />
     <Compile Include="Tests\ChessBoard_Tests.cs" />
     <Compile Include="Tests\GridSquare_Tests.cs" />
+    <Compile Include="Tests\Knight_Tests.cs" />
     <Compile Include="Tests\Pawn_Tests.cs" />
     <Compile Include="Piece\Enums\PieceColor.cs" />
     <Compile Include="Piece\Enums\MovementType.cs" />

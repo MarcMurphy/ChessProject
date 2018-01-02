@@ -1,6 +1,4 @@
-﻿using Gfi.Hiring.Utils.BoardLegelPositionChecker;
-using Moq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Drawing;
 
 namespace Gfi.Hiring
