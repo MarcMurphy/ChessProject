@@ -13,9 +13,9 @@ namespace Gfi.Hiring
                 chessBoard.Add(new Pawn(PieceColor.Black), new System.Drawing.Point(6, i));
                 chessBoard.Add(new Pawn(PieceColor.White), new System.Drawing.Point(1, i));
             }
-            chessBoard.Add(new Knight(PieceColor.Black), new System.Drawing.Point(7, 2));
+            chessBoard.Add(new Knight(PieceColor.Black), new System.Drawing.Point(7, 1));
             chessBoard.Add(new Knight(PieceColor.Black), new System.Drawing.Point(7, 6));
-            chessBoard.Add(new Knight(PieceColor.White), new System.Drawing.Point(0, 2));
+            chessBoard.Add(new Knight(PieceColor.White), new System.Drawing.Point(0, 1));
             chessBoard.Add(new Knight(PieceColor.White), new System.Drawing.Point(0, 6));
 
             Console.BackgroundColor = ConsoleColor.DarkGreen;
