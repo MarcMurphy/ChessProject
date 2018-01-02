@@ -13,6 +13,7 @@ namespace Gfi.Hiring
 
         private GridSquare[,] board;
         private IBoardLegalPositionChecker boardPositionChecker;
+        private IPieceValidMoveCalculator pieceValidMoveCalculator;
 
         public static void Main()
         {
@@ -23,6 +24,7 @@ namespace Gfi.Hiring
         {
             board = new GridSquare[MaxBoardWidth, MaxBoardHeight];
             boardPositionChecker = new BoardLegalPositionChecker(MaxBoardWidth, MaxBoardHeight);
+            pieceValidMoveCalculator = new PieceValidMoveCalculator();
             for(int x = 0; x < MaxBoardWidth; x++)
             {
                 for(int y = 0; y < MaxBoardHeight; y++)
@@ -60,9 +62,16 @@ namespace Gfi.Hiring
         
         public void Move(Point currentPosition, Point destination)
         {
-            if(boardPositionChecker.IsLegalBoardPosition(currentPosition) && boardPositionChecker.IsLegalBoardPosition(destination))
+            if(!boardPositionChecker.IsLegalBoardPosition(currentPosition) || !boardPositionChecker.IsLegalBoardPosition(destination))
             {
                 return;
+            }
+            GridSquare boardSquare = board[currentPosition.X, currentPosition.Y];
+            if (boardSquare.ContainsPiece())
+            {
+                BasePiece piece = boardSquare.Piece;
+                pieceValidMoveCalculator.CalculateAndSetValidPositions(piece, board);
+                
             }
             //get piece
             //move piece through PieceValidMoveCalculator
@@ -75,6 +84,19 @@ namespace Gfi.Hiring
             get
             {
                 return this.board;
+            }
+        }
+
+        public IBoardLegalPositionChecker BoardPositionChecker
+        {
+            get
+            {
+                return this.boardPositionChecker;   
+            }
+            set
+            {
+                //only making this public for unit testing
+                this.boardPositionChecker = value;
             }
         }
 

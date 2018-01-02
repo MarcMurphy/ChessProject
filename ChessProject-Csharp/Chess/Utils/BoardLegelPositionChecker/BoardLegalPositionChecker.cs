@@ -8,6 +8,11 @@ namespace Gfi.Hiring.Utils
         private readonly int maxHeight;
         private readonly int maxWidth;
 
+        public BoardLegalPositionChecker()
+        {
+            //for unit testing only
+        }
+
         public BoardLegalPositionChecker(int maxWidth, int maxHeight)
         {
             this.maxWidth = maxWidth;
