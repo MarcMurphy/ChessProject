@@ -1,6 +1,7 @@
 ﻿using Gfi.Hiring.Properties;
 using Gfi.Hiring.Utils;
 using Gfi.Hiring.Utils.BoardLegelPositionChecker;
+using System;
 using System.Drawing;
 using System.Windows.Controls;
 
@@ -14,18 +15,15 @@ namespace Gfi.Hiring
         private GridSquare[,] board;
         private IBoardLegalPositionChecker boardPositionChecker;
         private IPieceValidMoveCalculator pieceValidMoveCalculator;
-
-        public static void Main()
-        {
-
-        }
+        private ChessBoardRenderer chessBoardRenderer;
 
         public ChessBoard ()
         {
             board = new GridSquare[MaxBoardWidth, MaxBoardHeight];
             boardPositionChecker = new BoardLegalPositionChecker(MaxBoardWidth, MaxBoardHeight);
             pieceValidMoveCalculator = new PieceValidMoveCalculator(boardPositionChecker);
-            for(int x = 0; x < MaxBoardWidth; x++)
+            chessBoardRenderer = new ChessBoardRenderer(MaxBoardWidth, MaxBoardHeight);
+            for (int x = 0; x < MaxBoardWidth; x++)
             {
                 for(int y = 0; y < MaxBoardHeight; y++)
                 {
@@ -85,6 +83,30 @@ namespace Gfi.Hiring
             //
         }
 
+        public void HandleInput(string input)
+        {
+            if (input.Length != 5)
+            {
+                Console.WriteLine("To move a piece, format input as 'a1 a4'");
+                return;
+            }
+
+            char firstColumnRaw = input[0];
+            char firstRowRaw = input[1];
+            char secondColumnRaw = input[3];
+            char secondRowRaw = input[4];
+
+            int firstRow = ChessBoardCoordinateTranslator.TranslateRowDisplayToIndex(firstRowRaw);
+            int firstColumn = ChessBoardCoordinateTranslator.TranslateColumnDisplayToIndex(firstColumnRaw);
+            int secondRow = ChessBoardCoordinateTranslator.TranslateRowDisplayToIndex(secondRowRaw);
+            int secondColumn = ChessBoardCoordinateTranslator.TranslateColumnDisplayToIndex(secondColumnRaw);
+            this.Move(new Point(firstRow, firstColumn), new Point(secondRow, secondColumn));
+        }
+
+        public void Draw()
+        {
+            chessBoardRenderer.RenderBoard(board);
+        }
         public GridSquare[,] CurrentBoardState
         {
             get

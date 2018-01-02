@@ -39,8 +39,8 @@ namespace Gfi.Hiring
 
         protected string CurrentPositionAsStringForDisplay()
         {
-            string column = ChessBoardCoordinateTranslator.TranslateColumn(this.Coordinate.Y);
-            string row = ChessBoardCoordinateTranslator.TranslateRow(this.Coordinate.X);
+            string column = ChessBoardCoordinateTranslator.TranslateRowIndexToDisplay(this.Coordinate.Y);
+            string row = ChessBoardCoordinateTranslator.TranslateRowIndexToDisplay(this.Coordinate.X);
             return string.Format(Resources.CurrentPositionForDisplay, this.PieceType, column, row);
         }
     }

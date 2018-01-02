@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game.cs" />
     <Compile Include="GridSquare.cs" />
     <Compile Include="Piece\Base\BasePiece.cs" />
     <Compile Include="Piece\Enums\PieceType.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Utils\BoardLegelPositionChecker\BoardLegalPositionChecker.cs" />
     <Compile Include="Utils\BoardLegelPositionChecker\IBoardLegalPositionChecker.cs" />
     <Compile Include="Utils\ChessBoardCoordinateTranslator.cs" />
+    <Compile Include="Utils\ChessBoardRenderer.cs" />
     <Compile Include="Utils\PieceValidMoveCalculator\IPieceValidMoveCalculator.cs" />
     <Compile Include="Utils\PieceValidMoveCalculator\PieceValidMoveCalculator.cs" />
   </ItemGroup>

@@ -2,7 +2,7 @@
 {
     public enum PieceType
     {
-        Pawn = 'p',
+        Pawn = 'P',
         Rook = 'R',
         Knight = 'N',
         Bishop = 'B',

@@ -50,7 +50,7 @@ namespace Gfi.Hiring.Utils
 
         private Point SquareInFront(Point currentPosition, int direction)
         {
-            var squareInFront = new Point(currentPosition.X, currentPosition.Y + direction);
+            var squareInFront = new Point(currentPosition.X + direction, currentPosition.Y);
             return squareInFront;
         }
 
